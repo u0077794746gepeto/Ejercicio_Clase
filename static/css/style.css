@@ -249,9 +249,9 @@ button:hover {
     min-width: 420px;
     text-align: center;
 
-    box-shadow:
+    /* box-shadow:
         0 0 40px rgba(0,0,0,.9),
-        0 0 30px rgba(255,122,47,.35);
+        0 0 30px rgba(255,122,47,.35); */
 }
 
 .campus-card h2 {
