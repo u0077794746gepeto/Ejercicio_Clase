@@ -1,20 +1,39 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<h2>Acceso al Campus</h2>
+<div class="left-panel">
+    <h2>WELCOME!</h2>
+    <p>
+        We're delighted to have you here.
+        If you need any assistance, feel free to reach out.
+    </p>
+</div>
 
-<form method="POST" class="card">
+<div class="right-panel">
 
-    <input type="text" name="username" placeholder="Usuario" required>
-    <input type="password" name="password" placeholder="Contraseña" required>
+    <h2>Login</h2>
 
-    <button>Entrar</button>
+    <form method="POST" class="card">
 
-</form>
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Username" required>
+            <span>👤</span>
+        </div>
 
-<p>¿No tienes cuenta?</p>
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+            <span>🔒</span>
+        </div>
 
-<a href="{{ url_for('register') }}" class="link-btn">Registrarse</a>
+        <button>Login</button>
+
+    </form>
+
+    <div class="link-btn">
+        Don't have an account?
+        <a href="{{ url_for('register') }}">Sign up</a>
+    </div>
+
+</div>
 
 {% endblock %}

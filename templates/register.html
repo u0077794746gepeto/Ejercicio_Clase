@@ -1,19 +1,43 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<h2>Registro</h2>
+<div class="left-panel">
+    <h2>WELCOME!</h2>
+    <p>
+        Create your account and start your campus experience.
+    </p>
+</div>
 
-<form method="POST" class="card">
+<div class="right-panel">
 
-    <input type="text" name="username" placeholder="Usuario" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Contraseña" required>
+    <h2>Register</h2>
 
-    <button>Crear cuenta</button>
+    <form method="POST" class="card">
 
-</form>
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Username" required>
+            <span>👤</span>
+        </div>
 
-<a href="{{ url_for('index') }}" class="link-btn">Volver</a>
+        <div class="input-box">
+            <input type="email" name="email" placeholder="Email" required>
+            <span>📧</span>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+            <span>🔒</span>
+        </div>
+
+        <button>Register</button>
+
+    </form>
+
+    <div class="link-btn">
+        Already have an account?
+        <a href="{{ url_for('index') }}">Login</a>
+    </div>
+
+</div>
 
 {% endblock %}

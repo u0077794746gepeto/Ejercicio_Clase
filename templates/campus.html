@@ -2,13 +2,17 @@
 
 {% block content %}
 
-<h2>Bienvenido {{ session.user_name }}</h2>
+<div class="campus-wrapper">
 
-<div class="card">
+    <div class="campus-card">
 
-    <p><strong>Email:</strong> {{ session.user_mail }}</p>
+        <h2>Bienvenido, {{ session.user_name }}</h2>
 
-    <a href="{{ url_for('logout') }}" class="logout-btn">Cerrar sesión</a>
+        <p><strong>Email:</strong> {{ session.user_mail }}</p>
+
+        <a href="{{ url_for('logout') }}" class="logout-btn">Cerrar sesión</a>
+
+    </div>
 
 </div>
 

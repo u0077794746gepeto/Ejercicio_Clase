@@ -1,81 +1,264 @@
-body {
-    background: linear-gradient(120deg,#1d2671,#c33764);
-    font-family: 'Segoe UI', sans-serif;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+/* =======================
+   VARIABLES
+======================= */
+
+:root {
+    --orange: #ff7a2f;
+    --orange-soft: #ff9a5c;
+    --dark: #0f1117;
+    --dark-panel: #1a1d27;
+    --border-glow: rgba(255,122,47,0.6);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =======================
+   BODY
+======================= */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #222836, #0b0e14);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* =======================
+   CONTENEDOR GENERAL
+======================= */
 
 .container {
-    background:white;
-    width:400px;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
-    animation: fade 1s;
+    width: 900px;
+    height: 480px;
+    display: flex;
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--dark-panel);
+    box-shadow:
+        0 0 40px rgba(0,0,0,.8),
+        0 0 25px var(--border-glow);
+    position: relative;
 }
 
-header h1 {
-    text-align:center;
+/* =======================
+   PANEL IZQUIERDO
+======================= */
+
+.left-panel {
+    width: 45%;
+    background: linear-gradient(135deg,#ff8c42,#ff5f1f);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    padding: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.left-panel h2 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
+
+.left-panel p {
+    opacity: .9;
+    line-height: 1.5;
+}
+
+/* =======================
+   PANEL DERECHO
+======================= */
+
+.right-panel {
+    width: 55%;
+    padding: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+/* =======================
+   FORM
+======================= */
 
 .card {
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-input {
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ddd;
-    font-size:16px;
+/* =======================
+   INPUTS
+======================= */
+
+.input-box {
+    position: relative;
 }
 
-input:focus {
-    outline:none;
-    border-color:#c33764;
+.input-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #444;
+    padding: 10px 35px 10px 0;
+    color: white;
+    font-size: 15px;
 }
+
+.input-box input:focus {
+    outline: none;
+    border-color: var(--orange);
+}
+
+.input-box span {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    color: var(--orange-soft);
+}
+
+/* =======================
+   BOTÓN
+======================= */
 
 button {
-    background:#1d2671;
-    color:white;
-    border:none;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.3s;
+    margin-top: 10px;
+    background: linear-gradient(135deg,#ff8c42,#ff5f1f);
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease;
+    box-shadow: 0 0 15px rgba(255,122,47,.6);
 }
 
 button:hover {
-    transform:scale(1.05);
-    background:#c33764;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255,122,47,.9);
 }
+
+/* =======================
+   LINKS
+======================= */
 
 .link-btn {
-    display:block;
-    text-align:center;
-    margin-top:15px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
 }
 
-.logout-btn {
-    display:inline-block;
-    background:#c33764;
-    color:white;
-    padding:10px;
-    border-radius:8px;
-    text-decoration:none;
+.link-btn a {
+    color: var(--orange);
+    text-decoration: none;
 }
+
+/* =======================
+   FLASH
+======================= */
 
 .flash {
-    background:#ffe0e0;
-    padding:10px;
-    border-radius:8px;
-    margin-bottom:10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4d4d;
+    padding: 10px 20px;
+    border-radius: 12px;
 }
 
-@keyframes fade {
-    from {opacity:0; transform:translateY(20px)}
-    to {opacity:1;}
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 900px) {
+    .container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .left-panel {
+        clip-path: none;
+        width: 100%;
+    }
+
+    .right-panel {
+        width: 100%;
+    }
+}
+/* =======================
+   HEADER SUPERIOR
+======================= */
+
+.main-header {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.main-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg,#ffb347,#ff7a2f,#ff4f00);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow:
+        0 0 12px rgba(255,122,47,.7),
+        0 0 30px rgba(255,122,47,.4);
+}
+/* =======================
+   CAMPUS WRAPPER
+======================= */
+
+.campus-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =======================
+   CARD CAMPUS
+======================= */
+
+.campus-card {
+    background: #1a1d27;
+    padding: 50px;
+    border-radius: 22px;
+    color: white;
+    min-width: 420px;
+    text-align: center;
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.9),
+        0 0 30px rgba(255,122,47,.35);
+}
+
+.campus-card h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ff9a5c;
+}
+
+.campus-card p {
+    margin-bottom: 30px;
+    color: #ccc;
 }
