@@ -4,6 +4,6 @@ python-dotenv
 werkzeug
 
 #dependencia para despliegue en runway (va unico al archivo procfile)
-gunicorn<=20.0.4
+gunicorn
 
 #pip install -r requirements.txt
